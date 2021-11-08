@@ -7,11 +7,17 @@ class Server{
 
     constructor(){
         //Obtenemos una instacia de expres
+        //https://expressjs.com/en/4x/api.html#app
+        //Aplicación de express
         this.app = express();
         
         //Obtenemos nuestro número de puerto
         this.port = process.env.PORT;
 
+        //https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API
+        //En server/main.js creamos una aplicación con express, que pasaremos
+        //a un servidor http y todo esto irá ligado al servidor de websockets
+        //que creamos con socket.io
         this.server = require("http").createServer(this.app);
 
         this.io = require("socket.io")(this.server);
